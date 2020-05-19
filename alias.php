@@ -5,6 +5,9 @@
  * Creates aliases for PHP classes, methods, and functions
  * that have been moved or previously had brand prefixes.
  *
+ * Place this file in the `mu-plugins` directory of your
+ * website management system.
+ *
  * @package Alias
  * @version 1.0.0
  *
