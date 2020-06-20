@@ -16,6 +16,17 @@
  */
 
 /**
+ * Alias constants
+ *
+ * @since 1.0.0
+ */
+
+// Debug mode.
+if ( ! defined( 'WP_DEBUG' ) && defined( 'APP_DEBUG' ) ) {
+	define( 'WP_DEBUG', APP_DEBUG );
+}
+
+/**
  * Alias namespaces
  *
  * Make sure the namespaces here are the same base as that
