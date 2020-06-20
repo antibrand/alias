@@ -12,7 +12,7 @@
  * @version 1.0.0
  *
  * Plugin Name: alias
- * Description: Deprecated PHP classes, methods, and functions.
+ * Description: Deprecated PHP constants, classes, methods, and functions.
  */
 
 /**
