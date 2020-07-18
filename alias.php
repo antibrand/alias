@@ -15,7 +15,7 @@
 
 // Stop here if the system is not loaded.
 if ( ! defined( 'ABSPATH' ) ) {
-	return;
+	exit;
 }
 
 /**
@@ -23,18 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-
-// Debug mode.
-if ( ! defined( 'WP_DEBUG' ) && ( defined( 'APP_DEBUG' ) && APP_DEBUG ) ) {
-	define( 'WP_DEBUG', APP_DEBUG );
-}
-
-// Languages directory.
-if ( ! defined( 'WP_LANG_DIR' ) && APP_LANG_DIR ) {
-	define( 'WP_LANG_DIR', APP_LANG_DIR );
-} else {
-	define( 'WP_LANG_DIR', ABSPATH . 'app-languages' );
-}
+require( 'constants.php' );
 
 /**
  * Alias namespaces
