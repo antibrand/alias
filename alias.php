@@ -3,10 +3,8 @@
  * Alias
  *
  * Creates aliases for PHP classes, methods, and functions
- * that have been moved or previously had brand prefixes.
- *
- * Place this file in the `mu-plugins` directory of your
- * website management system.
+ * that have been moved or may be required for compatibility
+ * with plugins & themes written for other systems.
  *
  * @package Alias
  * @version 1.0.0
@@ -15,9 +13,9 @@
  * Description: Deprecated PHP constants, classes, methods, and functions.
  */
 
-// Stop if the system is not loaded.
+// Stop here if the system is not loaded.
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+	return;
 }
 
 /**
@@ -25,7 +23,18 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-require( 'constants.php' );
+
+// Debug mode.
+if ( ! defined( 'WP_DEBUG' ) && ( defined( 'APP_DEBUG' ) && APP_DEBUG ) ) {
+	define( 'WP_DEBUG', APP_DEBUG );
+}
+
+// Languages directory.
+if ( ! defined( 'WP_LANG_DIR' ) && APP_LANG_DIR ) {
+	define( 'WP_LANG_DIR', APP_LANG_DIR );
+} else {
+	define( 'WP_LANG_DIR', ABSPATH . 'app-languages' );
+}
 
 /**
  * Alias namespaces
