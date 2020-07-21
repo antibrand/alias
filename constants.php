@@ -56,3 +56,10 @@ if ( ! defined( 'MULTISITE' ) && defined( 'APP_NETWORK' ) ) {
 } else {
 	define( 'MULTISITE', false );
 }
+
+// Network admin.
+if ( ! defined( 'WP_NETWORK_ADMIN' ) && defined( 'APP_NETWORK_ADMIN' ) ) {
+	define( 'WP_NETWORK_ADMIN', APP_NETWORK_ADMIN );
+} else {
+	define( 'WP_NETWORK_ADMIN', false );
+}
