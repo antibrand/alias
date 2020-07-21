@@ -34,12 +34,12 @@ if ( ! defined( 'WP_INSTALLING' ) && defined( 'APP_INSTALLING' ) ) {
 }
 
 /**
- * Languages directory
+ * Plugins directory
  *
  * Check for definition with a value.
  *
  * @since 1.0.0
- * @var   string
+ * @var   string Returns the path to the plugins directory.
  */
 if ( ! defined( 'WP_PLUGIN_DIR' ) && ( defined( 'APP_PLUGIN_DIR' ) && APP_PLUGIN_DIR ) ) {
 	define( 'WP_PLUGIN_DIR', APP_PLUGIN_DIR );
@@ -53,7 +53,7 @@ if ( ! defined( 'WP_PLUGIN_DIR' ) && ( defined( 'APP_PLUGIN_DIR' ) && APP_PLUGIN
  * Check for definition with a value.
  *
  * @since 1.0.0
- * @var   string
+ * @var   string Returns the path to the languages directory.
  */
 if ( ! defined( 'WP_LANG_DIR' ) && ( defined( 'APP_LANG_DIR' ) && APP_LANG_DIR ) ) {
 	define( 'WP_LANG_DIR', APP_LANG_DIR );
