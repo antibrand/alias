@@ -86,6 +86,18 @@ if ( ! defined( 'WP_INSTALLING' ) && defined( 'APP_INSTALLING' ) ) {
 }
 
 /**
+ * Site admin
+ *
+ * @since 1.0.0
+ * @var   boolean
+ */
+if ( ! defined( 'WP_ADMIN' ) && defined( 'APP_ADMIN' ) ) {
+	define( 'WP_ADMIN', APP_ADMIN );
+} else {
+	define( 'WP_ADMIN', true );
+}
+
+/**
  * Memory limit
  *
  * @since 1.0.0
@@ -117,10 +129,10 @@ if ( ! defined( 'WP_MAX_MEMORY_LIMIT' ) && defined( 'APP_MAX_MEMORY_LIMIT' ) ) {
  * @since 1.0.0
  * @var   string Returns the path to the includes directory.
  */
-if ( ! defined( 'WPINC' ) && ( defined( 'APP_INC' ) && APP_INC ) ) {
-	define( 'WPINC', APP_INC );
+if ( ! defined( 'WPINC' ) && ( defined( 'APP_INC_DIR' ) && APP_INC_DIR ) ) {
+	define( 'WPINC', APP_INC_DIR );
 } else {
-	define( 'WPINC', ABSPATH . 'app-includes' );
+	define( 'WPINC', 'app-includes' );
 }
 
 /**
@@ -131,8 +143,8 @@ if ( ! defined( 'WPINC' ) && ( defined( 'APP_INC' ) && APP_INC ) ) {
  * @since 1.0.0
  * @var   string Returns the path to the content directory.
  */
-if ( ! defined( 'WP_CONTENT_DIR' ) && ( defined( 'APP_CONTENT_DIR' ) && APP_CONTENT_DIR ) ) {
-	define( 'WP_CONTENT_DIR', APP_CONTENT_DIR );
+if ( ! defined( 'WP_CONTENT_DIR' ) && ( defined( 'APP_VIEWS_PATH' ) && APP_VIEWS_PATH ) ) {
+	define( 'WP_CONTENT_DIR', APP_VIEWS_PATH );
 } else {
 	define( 'WP_CONTENT_DIR', ABSPATH . 'app-views' );
 }
@@ -145,8 +157,8 @@ if ( ! defined( 'WP_CONTENT_DIR' ) && ( defined( 'APP_CONTENT_DIR' ) && APP_CONT
  * @since 1.0.0
  * @var   string Returns the URL to the content directory.
  */
-if ( ! defined( 'WP_CONTENT_URL' ) && ( defined( 'APP_CONTENT_URL' ) && APP_CONTENT_URL ) ) {
-	define( 'WP_CONTENT_URL', APP_CONTENT_URL );
+if ( ! defined( 'WP_CONTENT_URL' ) && function_exists( 'content_url' ) ) {
+	define( 'WP_CONTENT_URL', content_url() );
 } else {
 	define( 'WP_CONTENT_URL', get_option( 'siteurl' ) . '/app-views' );
 }
@@ -177,6 +189,30 @@ if ( ! defined( 'WP_PLUGIN_URL' ) && ( defined( 'APP_PLUGIN_URL' ) && APP_PLUGIN
 	define( 'WP_PLUGIN_URL', APP_PLUGIN_URL );
 } else {
 	define( 'WP_PLUGIN_URL', ABSPATH . 'app-extend/plugins' );
+}
+
+/**
+ * Extensions/must-use plugins directory
+ *
+ * @since 1.0.0
+ * @var   string
+ */
+if ( ! defined( 'WPMU_PLUGIN_DIR' ) && defined( 'APP_EXTENSIONS_PATH' ) ) {
+	define( 'WPMU_PLUGIN_DIR', APP_EXTENSIONS_PATH );
+} else {
+	define( 'WPMU_PLUGIN_DIR', ABSPATH . 'app-extend/extensions' );
+}
+
+/**
+ * Extensions/must-use plugins URL
+ *
+ * @since 1.0.0
+ * @var   string
+ */
+if ( ! defined( 'WPMU_PLUGIN_URL' ) && defined( 'APP_EXTEND_URL' ) ) {
+	define( 'WPMU_PLUGIN_URL', APP_EXTEND_URL );
+} else {
+	define( 'WPMU_PLUGIN_URL', get_option( 'siteurl' ) . '/app-extend/extensions' );
 }
 
 /**
